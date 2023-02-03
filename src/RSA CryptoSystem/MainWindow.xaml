@@ -74,7 +74,7 @@
                     </Grid.RowDefinitions>
 
                     <TextBox Grid.Row="0" Grid.Column ="0" Margin="30,10,0,0" x:Name="Tab_txtPublicPlainText" Text="Public Text message to Encrypt"  HorizontalAlignment="Left"  TextWrapping="NoWrap" VerticalAlignment="Top" Width="310" TextChanged="Tab_txtPublicPlainText_TextChanged"/>
-                    <Button Grid.Row="0" Grid.Column ="0" Margin="360,10,0,0" x:Name="Tab_btnEncryptTextPlain" Content="Decrypt message" HorizontalAlignment="Left" Width="110" Background="#FF4485B7" Foreground="White" VerticalAlignment="Top" Click="Tab_btnEncryptTextPlain_Click"/>
+                    <Button Grid.Row="0" Grid.Column ="0" Margin="360,10,0,0" x:Name="Tab_btnEncryptTextPlain" Content="Encrypt message" HorizontalAlignment="Left" Width="110" Background="#FF4485B7" Foreground="White" VerticalAlignment="Top" Click="Tab_btnEncryptTextPlain_Click"/>
                     <RichTextBox Grid.Row="1" Grid.Column="0" Margin="30,10,30,10" x:Name="Tab_txtPublicSign" />
                     <TextBox Grid.Row="0" Grid.Column ="1" Margin="35,10,0,0" x:Name="Tab_txtPrivateSignature" Text="Private Signature to Decrypt"  HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Width="310" AutomationProperties.Name=""/>
                     <Button Grid.Row="0" Grid.Column ="1" Margin="360,10,0,0" x:Name="Tab_btnDecryptTextPlain" Content="Decrypt message" HorizontalAlignment="Left" Width="110" Background="#FF4485B7" Foreground="White" VerticalAlignment="Top" Click="Tab_btnDecryptTextPlain_Click"/>
