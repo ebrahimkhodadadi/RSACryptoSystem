@@ -6,3 +6,8 @@ RSA algorithm is an asymmetric cryptography algorithm. Asymmetric actually means
 ![Screenshot](images/history.png)
 ![Screenshot](images/1.gif)
 ![Screenshot](images/2.gif)
+
+
+## How it works
+
+ - [Document](https://www.idc-online.com/technical_references/pdfs/information_technology/Bouncy_Castle_Net_Implementation_RSA_Algorithm.pdf)
