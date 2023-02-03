@@ -1,0 +1,86 @@
+﻿<Window x:Class="Cap_RSA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cap_RSA"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        mc:Ignorable="d"
+        Title="RSA_Cryptography" Height="900" Width="1020" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="350"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" Grid.Column ="0" Margin="30,20,20,20" x:Name="btnPublicKeyCopy" Style="{StaticResource ButtonPrimary}" Content="Public Key (click to copy!)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" Background="#FF4485B7" Click="btnPublicKeyCopy_Click"/>
+            <Button Grid.Row="0" Grid.Column ="0" Margin="270,20,20,20" x:Name="btnPublicKeyPaste" Style="{StaticResource ButtonPrimary}" Content="Public Key (click to paste!)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Background="#FF4485B7" Click="btnPublicKeyPaste_Click"/>
+            <Button Grid.Row="0" Grid.Column ="1" Margin="30,20,20,20" x:Name="btnPrivateKeyCopy" Style="{StaticResource ButtonPrimary}" Content="Private Key (click to copy!)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" Background="#FF4485B7" Click="btnPrivateKeyCopy_Click"/>
+            <Button  Grid.Row="0" Grid.Column ="1"  Margin="270,20,20,20" x:Name="btnPrivateKeyPaste" Style="{StaticResource ButtonPrimary}" Content="Private Key (click to paste!)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Background="#FF4485B7" Click="btnPrivateKeyPaste_Click"/>
+            <RichTextBox Grid.Row="1" Grid.Column ="0" x:Name="txtPublicKey" Margin="30,0,30,10" />
+            <RichTextBox Grid.Row="1" Grid.Column ="1" x:Name="txtPrivateKey" Margin="30,0,30,10"/>
+        </Grid>
+
+        <ToggleButton Grid.Row="1" Margin="60,10,10,10" x:Name="btnGenerate" Style="{StaticResource ToggleButtonLoadingPrimary}" Content="Generate" hc:BorderElement.CornerRadius="15" VerticalAlignment="Top" Width="900" FontSize="14" Click="btnGenerate_Click" Height="35" HorizontalAlignment="Left" />
+
+        <TabControl Grid.Row="2" Style="{StaticResource TabControlInLine}" Margin="0,30,0,20">
+            <TabItem Header="Sign and Verify">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <TextBox Grid.Row="0" Grid.Column ="0" Margin="30,10,0,0" x:Name="txtPublicPlainText" Text="Private Text message to be signed"  HorizontalAlignment="Left"  TextWrapping="NoWrap" VerticalAlignment="Top" Width="322" TextChanged="txtPublicPlainText_TextChanged"/>
+                        <Button Grid.Row="0" Grid.Column ="0" Margin="370,10,0,0" x:Name="btnSignPublicTextPlain" Content="Sign message" HorizontalAlignment="Left" Width="96" Background="#FF4485B7" Foreground="White" Click="btnSignPublicTextPlain_Click" VerticalAlignment="Top"/>
+                        <RichTextBox Grid.Row="1" Grid.Column="0" Margin="30,10,30,10" x:Name="txtPublicSign" />
+                        <TextBox Grid.Row="0" Grid.Column ="1" Margin="35,10,0,0" x:Name="txtPrivatePlainText" Text="public Text message to be signed"  HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Width="430" AutomationProperties.Name=""/>
+                        <RichTextBox Grid.Row="1" Grid.Column ="1" x:Name="txtPrivateSign" Width="430" Margin="30,10,30,10"/>
+                    </Grid>
+                    <Button Grid.Row="2" Margin="60,10,10,20" x:Name="btnVerifySignutre" Style="{StaticResource ButtonPrimary}" Content="Verify this Signature" hc:BorderElement.CornerRadius="15" VerticalAlignment="Top" Width="900" Height="34" FontSize="14" Click="btnVerifySignature_Click" HorizontalAlignment="Left"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Encrypt and Decrypt">
+                <Grid Margin="0,20,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBox Grid.Row="0" Grid.Column ="0" Margin="30,10,0,0" x:Name="Tab_txtPublicPlainText" Text="Public Text message to Encrypt"  HorizontalAlignment="Left"  TextWrapping="NoWrap" VerticalAlignment="Top" Width="310" TextChanged="Tab_txtPublicPlainText_TextChanged"/>
+                    <Button Grid.Row="0" Grid.Column ="0" Margin="360,10,0,0" x:Name="Tab_btnEncryptTextPlain" Content="Decrypt message" HorizontalAlignment="Left" Width="110" Background="#FF4485B7" Foreground="White" VerticalAlignment="Top" Click="Tab_btnEncryptTextPlain_Click"/>
+                    <RichTextBox Grid.Row="1" Grid.Column="0" Margin="30,10,30,10" x:Name="Tab_txtPublicSign" />
+                    <TextBox Grid.Row="0" Grid.Column ="1" Margin="35,10,0,0" x:Name="Tab_txtPrivateSignature" Text="Private Signature to Decrypt"  HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Width="310" AutomationProperties.Name=""/>
+                    <Button Grid.Row="0" Grid.Column ="1" Margin="360,10,0,0" x:Name="Tab_btnDecryptTextPlain" Content="Decrypt message" HorizontalAlignment="Left" Width="110" Background="#FF4485B7" Foreground="White" VerticalAlignment="Top" Click="Tab_btnDecryptTextPlain_Click"/>
+                    <RichTextBox Grid.Row="1" Grid.Column ="1" x:Name="Tab_txtPrivateSign" Width="430" Margin="30,10,30,10"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
